@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Triathlon</string>
+
+    <string name="navigation_conferences">Conferences</string>
+    <string name="navigation_settings">Settings</string>
+
+    <string name="conference_name">Conference name</string>
+    <string name="conference_logo">Conference logo</string>
+    <string name="conference_location">Conference location</string>
+    <string name="conference_country">%s, %s</string>
+    <string name="conference_date">Conference date</string>
+    <string name="conference_status">Conference status</string>
+
+    <string name="settings_filter_online">Show only online conferences</string>
+</resources>
