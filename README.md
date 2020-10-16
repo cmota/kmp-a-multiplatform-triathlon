@@ -2,7 +2,10 @@
 
 Kotlin Multiplatform is here! 🙌
 
-I've created a codelab where you can follow step by step the development of android and iOS application using Kotlin Multiplatform:
+A Multiplatform Triathlon is a project built using Kotlin Multiplatform and targeting:
+- Android
+- iOS
+- Web
 
 👉 [Source Code](https://github.com/cmota/kmp-a-multiplatform-triathlon)
 
@@ -27,7 +30,7 @@ On Mac is really simple to install CocoaPods, just open the terminal and execute
 sudo gem install cocoapods
 ```
 
-### Compiling the project
+### Compiling the project for Android
 
 Now that you've got your environment ready, it's time to compile the project! Don't forget to download:
 
@@ -43,7 +46,23 @@ git clone https://github.com/cmota/kmp-a-multiplatform-triathlon.git
 3. You'll need to wait until gradle runs all the tasks. You can get up and stretch your legs a bit, this is going to take some minutes.
 
 
-4. Compile and run the app. 
+4. Compile and run the app.
+
+
+### Compiling the project for iOS
+
+1. Clone the project locally
+
+```
+git clone https://github.com/cmota/kmp-a-multiplatform-triathlon.git
+```
+
+2. Now open **Starter Project** on Android Studio (with KMM plugin installed).
+
+3. You'll need to wait until gradle runs all the tasks. You can get up and stretch your legs a bit, this is going to take some minutes.
+
+
+4. Compile and run the app.
 
 5. Now it's to compile for iOS! First, go to the iosApp inside the **Starter Project** folder on the command line.
 
@@ -65,7 +84,9 @@ pod install
 
 8. Now click on compile and run and let's see the app running on the iOS simulator/ iPhone!
 
-9. To compile for the web just enter the following command on terminal:
+### Compiling the project for the Web
+
+1. To compile for the web just enter the following command on terminal:
 
 ```
 ./gradlew web:run --continuous
