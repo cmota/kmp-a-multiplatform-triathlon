@@ -1,7 +1,9 @@
 package com.cmota.playground.triathlon.shared.data
 
+import com.cmota.playground.triathlon.shared.data.common.HttpClientLogger
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 
 private const val BASE_URL = "https://gist.githubusercontent.com/cmota/"
@@ -9,7 +11,12 @@ private const val ENDPOINT = "99626b9d3f3837679d42970f8df5160c/raw/a702fb9b5e00b
 
 class ConferencesAPI {
 
-    private val client = HttpClient()
+    private val client = HttpClient{
+        install(Logging) {
+            logger = HttpClientLogger
+            level = LogLevel.ALL
+        }
+    }
     /**
      * If the response was an application/json we would need to install [JsonFeature] on [HttpClient]
      * something similar to:
