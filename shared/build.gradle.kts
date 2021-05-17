@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("kotlin-android-extensions")
+    id("kotlin-parcelize")
     kotlin("native.cocoapods")
     kotlin("plugin.serialization")
     id("com.squareup.sqldelight")
@@ -14,7 +14,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     mavenCentral()
 }
 sqldelight {
@@ -52,18 +51,19 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-core:1.4.0")
-                implementation("io.ktor:ktor-client-json:1.4.0")
-                implementation("io.ktor:ktor-client-serialization:1.4.1")
+                implementation("io.ktor:ktor-client-core:1.5.4")
+                implementation("io.ktor:ktor-client-json:1.5.4")
+                implementation("io.ktor:ktor-client-serialization:1.5.4")
+                implementation("io.ktor:ktor-client-logging:1.5.4")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC2")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9-native-mt-2")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.1.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.1.1")
 
-                implementation("com.squareup.sqldelight:runtime:1.4.3")
+                implementation("com.squareup.sqldelight:runtime:1.5.0")
 
-                implementation("com.russhwolf:multiplatform-settings:0.6.2")
+                implementation("com.russhwolf:multiplatform-settings:0.7.6")
             }
         }
         val commonTest by getting {
@@ -74,35 +74,35 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation("com.google.android.material:material:1.3.0")
 
                 implementation("androidx.preference:preference:1.1.1")
 
-                implementation("io.ktor:ktor-client-android:1.4.0")
+                implementation("io.ktor:ktor-client-android:1.5.4")
                 implementation("io.ktor:ktor-client-okhttp:1.4.0")
 
-                implementation("com.squareup.sqldelight:android-driver:1.4.3")
+                implementation("com.squareup.sqldelight:android-driver:1.5.0")
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation("junit:junit:4.13.2")
             }
         }
 
         val iosMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:1.4.0")
+                implementation("io.ktor:ktor-client-ios:1.5.4")
 
-                implementation("com.squareup.sqldelight:native-driver:1.4.3")
+                implementation("com.squareup.sqldelight:native-driver:1.5.0")
             }
         }
         val iosTest by getting
 
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:1.4.0")
+                implementation("io.ktor:ktor-client-js:1.5.4")
 
                 //Not published at the moment: https://github.com/cashapp/sqldelight/issues/1667
                 //implementation("com.squareup.sqldelight:sqljs-driver:1.4.3")
@@ -111,11 +111,11 @@ kotlin {
     }
 }
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
     }
