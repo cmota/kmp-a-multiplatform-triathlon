@@ -21,10 +21,12 @@ class GetConferences(private val api: ConferencesAPI, private val dao: Conferenc
             Gutenberg.d(TAG, "Result:$conferences")
 
             if (dao != null) {
-            for (conference in conferences) {
-                dao.insertOrReplace(conference)
+                for (conference in conferences) {
+                    dao.insertOrReplace(conference)
+                }
             }
-            }
+
+            Gutenberg.d(TAG, "Only online conferences=${settingsRepository.shouldShowOnlyOnlineConferences()}")
 
             //Check current state of toggle only online
             val availableConferences = if (settingsRepository.shouldShowOnlyOnlineConferences()) {

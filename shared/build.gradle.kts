@@ -16,11 +16,37 @@ repositories {
     google()
     mavenCentral()
 }
+
 sqldelight {
     database("ConferenceDb") {
         packageName = "data"
     }
 }
+
+android {
+    configurations {
+        create("androidTestApi")
+        create("androidTestDebugApi")
+        create("androidTestReleaseApi")
+        create("testApi")
+        create("testDebugApi")
+        create("testReleaseApi")
+    }
+
+    compileSdkVersion(30)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(24)
+        targetSdkVersion(30)
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
+    }
+}
+
 kotlin {
     android()
 
@@ -107,21 +133,6 @@ kotlin {
                 //Not published at the moment: https://github.com/cashapp/sqldelight/issues/1667
                 //implementation("com.squareup.sqldelight:sqljs-driver:1.4.3")
             }
-        }
-    }
-}
-android {
-    compileSdkVersion(30)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
         }
     }
 }
