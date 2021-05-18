@@ -35,7 +35,7 @@ dependencies {
 android {
     compileSdkVersion(30)
     defaultConfig {
-        applicationId = "com.cmota.playground.triathlon.androidApp"
+        applicationId = "com.cmota.playground.triathlon"
         minSdkVersion(24)
         targetSdkVersion(30)
         versionCode = 2
