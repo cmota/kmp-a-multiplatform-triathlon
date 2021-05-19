@@ -9,7 +9,7 @@ plugins {
     id("com.squareup.sqldelight")
 }
 group = "com.cmota.playground.triathlon"
-version = "1.0-SNAPSHOT"
+version = "1.0.1"
 
 repositories {
     gradlePluginPortal()
@@ -85,7 +85,6 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:1.5.4")
 
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.1.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 
                 implementation("com.squareup.sqldelight:runtime:1.5.0")
 
@@ -100,8 +99,6 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.3.0")
-
                 implementation("androidx.preference:preference:1.1.1")
 
                 implementation("io.ktor:ktor-client-android:1.5.4")
