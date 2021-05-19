@@ -69,10 +69,12 @@ kotlin {
         ios.deploymentTarget = "13.2"
     }
 
-    js {
-        browser {
-        }
+    js(IR) {
+        browser()
+        binaries.executable()
     }
+
+    jvm()
 
     sourceSets {
         val commonMain by getting {
@@ -108,12 +110,12 @@ kotlin {
                 implementation("com.squareup.sqldelight:android-driver:1.5.0")
             }
         }
-        val androidTest by getting {
+        /*val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
             }
-        }
+        }*/
 
         val iosMain by getting {
             dependencies {
@@ -132,7 +134,19 @@ kotlin {
                 //implementation("com.squareup.sqldelight:sqljs-driver:1.4.3")
             }
         }
+
+        val jvmMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-apache:1.5.4")
+                implementation("io.ktor:ktor-client-core-jvm:1.5.4")
+                implementation("io.ktor:ktor-client-serialization-jvm:1.5.4")
+            }
+        }
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
 }
 
 val packForXcode by tasks.creating(Sync::class) {

@@ -7,15 +7,15 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 
 private const val BASE_URL = "https://gist.githubusercontent.com/cmota/"
-private const val ENDPOINT = "99626b9d3f3837679d42970f8df5160c/raw/a702fb9b5e00b7d1b608de5d9b6fda780ff3ba4b/conferences-2.json"
+private const val ENDPOINT = "538995c3251c4166708bd2c887462621/raw/d12aefaaa112cb17d0567af24d306e4809f2e2b6/conferences-3.json"
 
 class ConferencesAPI {
 
     private val client = HttpClient{
-        install(Logging) {
+        /*install(Logging) {
             logger = HttpClientLogger
             level = LogLevel.ALL
-        }
+        }*/
     }
     /**
      * If the response was an application/json we would need to install [JsonFeature] on [HttpClient]
