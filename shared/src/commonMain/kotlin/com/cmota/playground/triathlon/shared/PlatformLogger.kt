@@ -1,6 +1,6 @@
 package com.cmota.playground.triathlon.shared
 
-internal expect class PlatformLogger {
+internal expect class PlatformLogger() {
 
     fun debug(tag: String, message: String)
 
