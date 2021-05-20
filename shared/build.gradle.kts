@@ -102,7 +102,6 @@ kotlin {
                 implementation("androidx.preference:preference:1.1.1")
 
                 implementation("io.ktor:ktor-client-android:1.5.4")
-                implementation("io.ktor:ktor-client-okhttp:1.4.0")
 
                 implementation("com.squareup.sqldelight:android-driver:1.5.0")
             }
